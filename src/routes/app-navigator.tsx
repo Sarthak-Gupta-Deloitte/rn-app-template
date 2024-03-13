@@ -1,11 +1,15 @@
+import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {getCurrentRoute, navigationRef} from './navigation-utils';
+import {MAIN_ROUTES_SCREEN, SCREEN_NAME} from './screens-details';
+import AppConfig from './app-config';
 
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
   let previousRouteName = '';
+
   return (
     <NavigationContainer
       ref={navigationRef}
@@ -18,13 +22,17 @@ const AppNavigator = () => {
           previousRouteName = currentRouteName;
         }
       }}>
-      <Stack.Navigator initialRouteName={'demo'}>
-        <Stack.Screen
-          name="Home"
-          options={{
-            headerShown: false,
-          }}
-        />
+      <Stack.Navigator initialRouteName={SCREEN_NAME.login}>
+        {MAIN_ROUTES_SCREEN.map(route => {
+          return (
+            <Stack.Screen
+              key={route.key}
+              name={route.name}
+              options={route.option}>
+              {props => <AppConfig {...props} route={route} />}
+            </Stack.Screen>
+          );
+        })}
       </Stack.Navigator>
     </NavigationContainer>
   );
