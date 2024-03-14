@@ -1,13 +1,17 @@
 import React from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 
 const Dashboard = () => {
   return (
-    <SafeAreaView>
-      <View>
-        <Text>Dashboard</Text>
-      </View>
-    </SafeAreaView>
+    <View
+      style={{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'red',
+      }}>
+      <Text>Dashboard</Text>
+    </View>
   );
 };
 
