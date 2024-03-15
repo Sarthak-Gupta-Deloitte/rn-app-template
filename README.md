@@ -4,8 +4,7 @@ follow up some cammand to run the application
 yarn or npm install
 ```
 
-done not need to pod install, it will auto trigger after package install.
-
+No need to install pod, it will auto trigger once the package is installed.
 
 ----------------------------------------------------------
 
